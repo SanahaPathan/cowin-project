@@ -1,0 +1,75 @@
+<div class="container" *ngIf="onClickOpen">
+    <div class="row">
+        <div class="col-3">
+        </div>
+        <div class="col-6 text-center">
+                <h2 class="text-primary">Register or Sign In for Vaccination</h2><br>
+                <p class="text-secondary">An OTP will be sent to your mobile number for verification</p><br>
+                <input type="number" class="form-control" placeholder="Enter your mobile number" [(ngModel)]="mobNo"><br>
+                <p-button label="Get OTP" class="button" (click)="generateOtp()"></p-button><br>
+            <P class="text-secondary">By Sign In/Registration, I agree to the Terms of Service and Privacy Policy</P><br>
+            <h6 class="text-info"> OR BOOK APPOINTMENT USING</h6>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+<br><br><br><br>
+
+<div class="container  " *ngIf="OnclickOpenSingUp">
+    <div class="row">
+        <div class="col-md-3 "></div>
+        <div class="col-md-6 text-center py-4 mb-4 ABC">
+            <!-- <img src="../../assets/img RgF.svg" alt="">  -->
+            <h3><b>OTP Verification</b></h3><br>
+            <h5>An OTP has been sent to</h5>
+
+            <form>
+                <label for="">{{mobNo}}</label><br><br>
+                <input type="number" name="otp" [(ngModel)]="otp" maxlength="10" placeholder="Enter OTP"><br>
+                <button type="submit" class="btn btn-light AD " (click)="generateOtp()">Resend OTP</button><br>
+                <small>There might be some delay in receiving the OTP due<br> to heavy traffic</small><br><br>
+                <button type="submit" class="btn btn-primary " (click)="confirmOtp()">Verify & Proceed</button><br>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+
+    </div>
+</div>
+
+
+<div class="container  " *ngIf="onclickadd">
+    <div class="row">
+        <div class="col-md-3 "></div>
+        <div class="col-md-6  py-4 mb-4 ABC text-center">
+            <h2 class="text-center text-primary"><b>Register for Vaccination</b></h2>
+            <div class="text-center text-secondary">
+                <small>Your Photo ID will be verified at the time of your vaccination appointment.<br> Please provide
+                    the details of the <b> Photo ID</b> you will carry for vaccination.</small>
+            </div>
+
+            <form class="text-center">
+                <label><small>Photo ID Proof</small></label><br>
+                <select aria-label="Select Your State">
+
+                    <option *ngFor="let photoId of photoIds">{{photoId}}</option>
+                </select><br><br>
+
+                <input type="number" class="form-center" name="pidNo" value="pidNo" maxlength="10"
+                    placeholder="Voter ID Number"><br><br>
+                <input type="text" name="name" placeholder="Enter Your Name"><br>
+                <label for="">Gender</label><br>
+                <input class="AG" type="radio" name="gender" value="male">
+                <label for="male">Male</label>
+                <input class="AG" type="radio" name="gender" value="female">
+                <label for="female">Female</label>
+                <input class="AG" type="radio" name="gender" value="others">
+                <label for="others">Others</label><br>
+                <input type="date" name="date" placeholder="Enter Your Birth Date"><br><br>
+
+                <button type="submit" class="btn btn-primary " (click)="add()">Add</button><br>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+
+    </div>
+</div>
